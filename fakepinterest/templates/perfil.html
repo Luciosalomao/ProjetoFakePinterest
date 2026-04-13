@@ -1,0 +1,13 @@
+{%extends 'base.html'%}
+
+{% block title %}
+Perfil - {{ user }}
+{% endblock %}
+
+{% block body %}
+<body>
+    <h1>Perfil do usuário: {{ user }}</h1>
+
+    <a href="{{ url_for('logout') }}">Sair</a>
+</body>
+{% endblock %}

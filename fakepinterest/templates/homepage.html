@@ -1,0 +1,15 @@
+{%extends 'base.html'%}
+{% block title %}
+    FakePirestest
+{% endblock %}
+{% block body %}
+<body>
+<form method="POST" >
+    {{ form.csrf_token }}
+    {{ form.email.label }} {{ form.email() }}
+
+    {{ form.senha.label }} {{ form.senha() }}
+    {{ form.botao() }}
+</form>
+</body>
+{% endblock %}
