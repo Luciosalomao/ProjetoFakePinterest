@@ -12,7 +12,7 @@ def homepage():
         if user:
             bcrypt.check_password_hash(user.senha, formlogin.senha.data)
             login_user(user, remember=True)
-            return redirect(url_for('perfil', usuario=user.usuario))
+            return redirect(url_for('perfil', id_usuario=user.id))
     return render_template('homepage.html', form=formlogin)
 
 @app.route('/criarconta', methods=['GET', 'POST'])
@@ -27,12 +27,16 @@ def criarconta():
         database.session.add(user)
         database.session.commit()
         login_user(user, remember=True)
-        return redirect(url_for('perfil', usuario=user.usuario))
+        return redirect(url_for('perfil', id_usuario=user.id))
     return render_template('criarconta.html', form=formcriarconta)
 
-@app.route('/perfil/<usuario>')
+@app.route('/perfil/<id_usuario>')
 @login_required
-def perfil(usuario):
+def perfil(id_usuario):
+    if int(id_usuario) == int(current_user.id):
+        return render_template('perfil.html', user=current_user)
+    else:
+        usuario = Usuario.query.get(int(id_usuario))
     return render_template('perfil.html', user=usuario)
 
 @app.route('/logout')

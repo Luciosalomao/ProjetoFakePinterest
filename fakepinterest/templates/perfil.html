@@ -6,7 +6,7 @@ Perfil - {{ user }}
 
 {% block body %}
 <body>
-    <h1>Perfil do usuário: {{ user }}</h1>
+    <h1>Perfil do usuário: {{ user.usuario }}</h1>
 
     <a href="{{ url_for('logout') }}">Sair</a>
 </body>
