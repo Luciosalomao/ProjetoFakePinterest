@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+
+{% block body %}
+    {% include "navbar.html" %}
+<h1>Feed principal</h1>
+    {% for foto in fotos %}
+        <img src="{{ url_for('static', filename='fotos_posts/{}'.format(foto.imagem)) }}">
+    {% endfor %}
+{% endblock %}
+

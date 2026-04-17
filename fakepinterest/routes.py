@@ -55,3 +55,11 @@ def perfil(id_usuario):
 def logout():
     logout_user()
     return redirect(url_for('homepage'))
+
+
+@app.route('/feed')
+@login_required
+def feed():
+    '''Limitando a quantidade de 100 imagens'''
+    fotos = Foto.query.order_by(Foto.data_criacao.desc()).all()[:100]
+    return render_template('feed.html', fotos=fotos)
