@@ -1,18 +1,54 @@
-{%extends 'base.html'%}
+{% extends 'base.html' %}
+
 {% block title %}
-    FakePirestest
+    Criar Conta - FakePinterest
 {% endblock %}
+
 {% block body %}
 <body>
-<form method="POST">
-    {{ form.csrf_token }}
-    {{ form.email.label }} {{ form.email() }}
-    {{ form.nome.label }} {{ form.nome() }}
-    {{ form.usuario.label }} {{ form.usuario() }}
-    {{ form.senha.label }} {{ form.senha() }}
-    {{ form.confirmacao_senha.label }} {{ form.confirmacao_senha() }}
-    {{ form.botao_confirmar() }}
-</form>
-<a href="{{ url_for('homepage') }}">Já tem uma conta? Faça login</a>
+    <div class="login-container">
+        <div class="login-box">
+            <div class="login-logo">
+                <img src="{{ url_for('static', filename='fotos_site/oip.png') }}" alt="FakePinterest">
+            </div>
+
+            <h2 class="welcome-text">Criar conta</h2>
+
+            <form method="POST" class="login-form">
+                {{ form.csrf_token }}
+
+                <div class="input-field">
+                    {{ form.email.label }}
+                    {{ form.email(placeholder="exemplo@email.com") }}
+                </div>
+
+                <div class="input-field">
+                    {{ form.nome.label }}
+                    {{ form.nome(placeholder="Seu nome completo") }}
+                </div>
+
+                <div class="input-field">
+                    {{ form.usuario.label }}
+                    {{ form.usuario(placeholder="Nome de usuário") }}
+                </div>
+
+                <div class="input-field">
+                    {{ form.senha.label }}
+                    {{ form.senha(placeholder="********") }}
+                </div>
+
+                <div class="input-field">
+                    {{ form.confirmacao_senha.label }}
+                    {{ form.confirmacao_senha(placeholder="********") }}
+                </div>
+
+                {{ form.botao_confirmar(class="login-btn", value="Criar Conta") }}
+            </form>
+
+            <div class="signup-link">
+                <a href="{{ url_for('homepage') }}">Ja tem uma conta? Faca login</a>
+            </div>
+        </div>
+    </div>
 </body>
 {% endblock %}

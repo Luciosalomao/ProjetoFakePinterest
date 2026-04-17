@@ -1,0 +1,516 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Roboto, system-ui, -apple-system, sans-serif;
+    background-color: #ffffff;
+    color: #211922;
+    line-height: 1.5;
+    min-height: 100vh;
+}
+
+nav {
+    width: 100%;
+    background-color: #ffffff;
+    box-shadow: 0 1px 0 rgba(0, 0, 0, 0.05);
+    padding: 0.75rem 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+nav a {
+    text-decoration: none;
+    color: #211922;
+    font-weight: 600;
+    font-size: 1rem;
+    padding: 0.75rem 1rem;
+    border-radius: 24px;
+    transition: background-color 0.2s ease;
+}
+
+nav a:hover {
+    background-color: #1111110f;
+    color: #211922;
+}
+
+h1 {
+    margin: 1.5rem 0 1rem;
+    font-weight: 600;
+    font-size: 1.8rem;
+    text-align: center;
+    color: #211922;
+}
+
+.login-container {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #ffffff;
+    padding: 2rem 1rem;
+}
+
+.login-box {
+    background-color: white;
+    width: 100%;
+    max-width: 480px;
+    padding: 2rem 2.5rem 1.5rem;
+    border-radius: 32px;
+    box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.05), 0 4px 16px rgba(0, 0, 0, 0.08);
+}
+
+.login-logo {
+    text-align: center;
+    margin-bottom: 0.75rem;
+}
+
+.login-logo img {
+    width: 55px;
+    height: 55px;
+    object-fit: contain;
+}
+
+.welcome-text {
+    text-align: center;
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #211922;
+    margin-bottom: 1.2rem;
+}
+
+.login-form {
+    background: transparent !important;
+    max-width: 100% !important;
+    width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+    display: block !important;
+}
+
+.input-field {
+    margin-bottom: 0.9rem;
+}
+
+.input-field label {
+    display: block;
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: #767676;
+    margin-bottom: 0.25rem;
+}
+
+.input-field input {
+    width: 100%;
+    padding: 0.85rem 1rem;
+    border: 2px solid #cdcdcd;
+    border-radius: 16px;
+    font-size: 1rem;
+    transition: border-color 0.2s;
+}
+
+.input-field input:focus {
+    outline: none;
+    border-color: #e60023;
+}
+
+.input-field input::placeholder {
+    color: #b5b5b5;
+    font-size: 0.9rem;
+}
+
+.login-btn {
+    width: 100%;
+    background-color: #e60023 !important;
+    color: white !important;
+    border: none !important;
+    padding: 0.8rem !important;
+    border-radius: 24px !important;
+    font-weight: 600 !important;
+    font-size: 1rem !important;
+    cursor: pointer !important;
+    margin: 0.5rem 0 0.75rem !important;
+    transition: background-color 0.15s !important;
+}
+
+.login-btn:hover {
+    background-color: #ad081b !important;
+}
+
+.signup-link {
+    text-align: center;
+    padding-top: 0.5rem;
+    border-top: 1px solid #efefef;
+}
+
+.signup-link a {
+    color: #e60023;
+    font-weight: 600;
+    font-size: 0.95rem;
+    text-decoration: none;
+}
+
+.signup-link a:hover {
+    text-decoration: underline;
+}
+
+@media (max-height: 750px) {
+    .login-box {
+        padding: 1.5rem 2rem 1.2rem;
+    }
+
+    .login-logo img {
+        width: 45px;
+        height: 45px;
+    }
+
+    .welcome-text {
+        font-size: 1.3rem;
+        margin-bottom: 0.9rem;
+    }
+
+    .input-field {
+        margin-bottom: 0.7rem;
+    }
+
+    .input-field input {
+        padding: 0.7rem 1rem;
+    }
+}
+
+form {
+    background-color: white;
+    max-width: 420px;
+    width: 90%;
+    margin: 2rem auto;
+    padding: 2rem 2rem 2.5rem;
+    border-radius: 32px;
+    box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.05), 0 4px 16px rgba(0, 0, 0, 0.05);
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+form label {
+    font-weight: 500;
+    margin-bottom: -0.5rem;
+    color: #211922;
+    font-size: 0.9rem;
+}
+
+form input[type="text"],
+form input[type="email"],
+form input[type="password"],
+form input[type="file"] {
+    width: 100%;
+    padding: 0.9rem 1rem;
+    border: 2px solid #cdcdcd;
+    border-radius: 16px;
+    font-size: 1rem;
+    transition: border 0.2s;
+    background-color: #ffffff;
+}
+
+form input:focus {
+    outline: none;
+    border-color: #e60023;
+}
+
+form input[type="submit"],
+button,
+.botao_confirmar,
+.botao {
+    background-color: #e60023;
+    color: white;
+    border: none;
+    padding: 0.8rem 1.2rem;
+    border-radius: 24px;
+    font-weight: 600;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.15s;
+    margin-top: 0.5rem;
+}
+
+form input[type="submit"]:hover,
+button:hover {
+    background-color: #ad081b;
+}
+
+a {
+    text-decoration: none;
+    color: #211922;
+    font-weight: 600;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+body > a {
+    display: block;
+    margin: 1rem auto 2rem;
+    font-weight: 600;
+    color: #211922;
+    background-color: #efefef;
+    padding: 0.7rem 1.5rem;
+    border-radius: 24px;
+    width: fit-content;
+}
+
+body > a:hover {
+    background-color: #e2e2e2;
+    text-decoration: none;
+}
+
+.pinterest-grid {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 1rem;
+    column-count: 5;
+    column-gap: 1rem;
+}
+
+.feed-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 1rem;
+    column-count: 5;
+    column-gap: 1rem;
+}
+
+.pinterest-grid a,
+.feed-container a {
+    display: block;
+    margin-bottom: 1rem;
+    break-inside: avoid;
+    border-radius: 16px;
+    overflow: hidden;
+    transition: filter 0.2s;
+}
+
+.pinterest-grid img,
+.feed-container img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 16px;
+    object-fit: cover;
+    transition: filter 0.2s;
+}
+
+.pinterest-grid a:hover,
+.feed-container a:hover {
+    filter: brightness(0.95);
+}
+
+@media (max-width: 1200px) {
+    .pinterest-grid,
+    .feed-container {
+        column-count: 4;
+    }
+}
+
+@media (max-width: 900px) {
+    .pinterest-grid,
+    .feed-container {
+        column-count: 3;
+    }
+}
+
+@media (max-width: 600px) {
+    .pinterest-grid,
+    .feed-container {
+        column-count: 2;
+        padding: 0.5rem;
+        column-gap: 0.5rem;
+    }
+
+    .pinterest-grid a,
+    .feed-container a {
+        margin-bottom: 0.5rem;
+    }
+}
+
+.perfil-container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 1rem;
+}
+
+.perfil-header {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.perfil-header h1 {
+    margin-bottom: 1rem;
+}
+
+.perfil-fotos {
+    column-count: 3;
+    column-gap: 1rem;
+}
+
+.perfil-fotos a {
+    display: block;
+    margin-bottom: 1rem;
+    break-inside: avoid;
+    border-radius: 16px;
+    overflow: hidden;
+    transition: filter 0.2s;
+}
+
+.perfil-fotos img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 16px;
+    object-fit: cover;
+    transition: filter 0.2s;
+}
+
+.perfil-fotos img:hover {
+    filter: brightness(0.95);
+    cursor: pointer;
+}
+
+@media (max-width: 700px) {
+    .perfil-fotos {
+        column-count: 2;
+    }
+}
+
+@media (max-width: 450px) {
+    .perfil-fotos {
+        column-count: 1;
+    }
+}
+
+input[type="file"] {
+    padding: 0.5rem 0;
+    background: transparent;
+    border: none;
+}
+
+input[type="file"]::file-selector-button {
+    background-color: #efefef;
+    border: none;
+    padding: 0.6rem 1.2rem;
+    border-radius: 24px;
+    font-weight: 600;
+    margin-right: 1rem;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+input[type="file"]::file-selector-button:hover {
+    background-color: #e2e2e2;
+}
+
+.upload-form {
+    max-width: 400px;
+    margin: 1rem auto 2rem;
+}
+
+.upload-label {
+    display: block;
+    background-color: #efefef;
+    color: #211922;
+    font-weight: 600;
+    padding: 0.8rem 1.5rem;
+    border-radius: 24px;
+    text-align: center;
+    cursor: pointer;
+    margin-bottom: 1rem;
+    transition: background-color 0.2s;
+}
+
+.upload-label:hover {
+    background-color: #e2e2e2;
+}
+
+.upload-btn {
+    background-color: #e60023 !important;
+    color: white !important;
+    border: none !important;
+    padding: 0.9rem 1.5rem !important;
+    border-radius: 24px !important;
+    font-weight: 700 !important;
+    font-size: 1rem !important;
+    cursor: pointer !important;
+    width: 100% !important;
+    transition: background-color 0.15s !important;
+}
+
+.upload-btn:hover {
+    background-color: #ad081b !important;
+}
+
+.file-name {
+    text-align: center;
+    color: #767676;
+    font-size: 0.9rem;
+    margin: 0.5rem 0 1rem;
+    font-style: italic;
+}
+
+@media (max-width: 500px) {
+    nav {
+        flex-wrap: wrap;
+        gap: 0.5rem;
+        padding: 0.5rem 1rem;
+    }
+
+    nav a {
+        padding: 0.5rem 0.75rem;
+        font-size: 0.9rem;
+    }
+
+    form {
+        padding: 1.5rem;
+        width: 95%;
+    }
+
+    h1 {
+        font-size: 1.5rem;
+    }
+
+    .welcome-text {
+        font-size: 1.3rem;
+    }
+}
+
+.alert {
+    background-color: #fff3f3;
+    color: #ad081b;
+    padding: 0.8rem 1.5rem;
+    border-radius: 24px;
+    margin: 1rem auto;
+    max-width: 500px;
+    text-align: center;
+}
+
+img[src*="fotos_posts"] {
+    width: 100%;
+    height: auto;
+    border-radius: 16px;
+    margin: 0;
+    box-shadow: none;
+    border: none;
+}
+
+img[src*="fotos_posts"]:hover {
+    transform: none;
+    box-shadow: none;
+}

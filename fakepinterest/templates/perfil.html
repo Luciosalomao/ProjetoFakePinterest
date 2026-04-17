@@ -1,26 +1,32 @@
-{%extends 'base.html'%}
+{% extends 'base.html' %}
 
 {% block title %}
-Perfil - {{ user }}
+Perfil - {{ user.usuario }}
 {% endblock %}
 
 {% block body %}
-<body>
     {% include "navbar.html" %}
 
-    <h1>Perfil do usuário: {{ user.usuario }}</h1>
+    <div class="perfil-container">
+        <div class="perfil-header">
+            <h1>{{ user.usuario }}</h1>
 
-    {% if form %}
-    <form method="POST" enctype="multipart/form-data">
-        {{ form.csrf_token }}
-        {{ form.foto }}
-        {{ form.botao_foto }}
-    </form>
-    {% endif %}
+            {% if form %}
+            <form method="POST" enctype="multipart/form-data">
+                {{ form.csrf_token }}
+                {{ form.foto }}
+                {{ form.botao_foto }}
+            </form>
+            {% endif %}
+        </div>
 
-    {% for foto in user.fotos %}
-        <img src="{{ url_for('static', filename='fotos_posts/{}'.format(foto.imagem)) }}">
-    {% endfor %}
-
-</body>
+        <div class="perfil-fotos">
+            {% for foto in user.fotos %}
+            <a href="{{ url_for('static', filename='fotos_posts/{}'.format(foto.imagem)) }}" target="_blank">
+                <img src="{{ url_for('static', filename='fotos_posts/{}'.format(foto.imagem)) }}"
+                     alt="Foto de {{ user.usuario }}">
+            </a>
+            {% endfor %}
+        </div>
+    </div>
 {% endblock %}

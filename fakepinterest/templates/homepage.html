@@ -1,16 +1,39 @@
-{%extends 'base.html'%}
+{% extends 'base.html' %}
+
 {% block title %}
-    FakePirestest
+    FakePinterest
 {% endblock %}
+
 {% block body %}
 <body>
-<form method="POST" >
-    {{ form.csrf_token }}
-    {{ form.email.label }} {{ form.email() }}
+    <div class="login-container">
+        <div class="login-box">
+            <div class="login-logo">
+                <img src="{{ url_for('static', filename='fotos_site/oip.png') }}" alt="FakePinterest">
+            </div>
 
-    {{ form.senha.label }} {{ form.senha() }}
-    {{ form.botao() }}
-</form>
-<a href="{{ url_for('criarconta') }}">Ainda não tem uma conta? Clique aqui para criar</a>
+            <h2 class="welcome-text">Bem-vindo(a)</h2>
+
+            <form method="POST" class="login-form">
+                {{ form.csrf_token }}
+
+                <div class="input-field">
+                    {{ form.email.label }}
+                    {{ form.email(placeholder="exemplo@email.com") }}
+                </div>
+
+                <div class="input-field">
+                    {{ form.senha.label }}
+                    {{ form.senha(placeholder="********") }}
+                </div>
+
+                {{ form.botao(class="login-btn", value="Entrar") }}
+            </form>
+
+            <div class="signup-link">
+                <a href="{{ url_for('criarconta') }}">Ainda nao tem uma conta? Cadastre-se</a>
+            </div>
+        </div>
+    </div>
 </body>
 {% endblock %}
