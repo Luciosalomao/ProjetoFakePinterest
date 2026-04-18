@@ -1,0 +1,24 @@
+version: '3.8'
+
+services:
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: fakepinterest_app
+    ports:
+      - "5080:5000"
+    environment:
+      - FLASK_ENV=development
+      - PYTHONUNBUFFERED=1
+    volumes:
+      - .:/app
+      - /app/.venv
+    command: python main.py
+    restart: unless-stopped
+    networks:
+      - fakepinterest_network
+
+networks:
+  fakepinterest_network:
+    driver: bridge
