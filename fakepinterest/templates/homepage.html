@@ -8,10 +8,11 @@
 <body>
     <div class="login-container">
         <div class="login-box">
-            <div class="login-logo">
-                <img src="{{ url_for('static', filename='fotos_site/oip.png') }}" alt="FakePinterest">
-            </div>
-
+                <div class="login-logo">
+                    <a href="{{ url_for('feed') }}">
+                         <img src="{{ url_for('static', filename='fotos_site/oip.png') }}" alt="FakePinterest">
+                    </a>
+                </div>
             <h2 class="welcome-text">Bem-vindo(a)</h2>
 
             <form method="POST" class="login-form">

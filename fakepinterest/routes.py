@@ -58,7 +58,6 @@ def logout():
 
 
 @app.route('/feed')
-@login_required
 def feed():
     '''Limitando a quantidade de 100 imagens'''
     fotos = Foto.query.order_by(Foto.data_criacao.desc()).all()[:100]
